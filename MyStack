@@ -1,0 +1,54 @@
+class MyStack(list):
+    push = list.append
+    def is_empty(self):
+        if not self:
+            return True
+        else:
+            return False
+
+    def peek(self):
+        return self[-1]
+
+if __name__=="__main__":
+    n = int(input())
+    s = MyStack()
+
+    a = list()
+    b = list()
+
+    index = 1
+    ans = 0
+
+    checker = True
+    for i in range(1,n+1):
+        a.append(int(input()))
+
+    while index < n + 1 :
+
+        if not s.is_empty():
+            if s.peek() == a[ans]:
+                s.pop()
+                ans += 1
+                b.append("-")
+                continue
+
+        s.push(index)
+        b.append("+")
+        index += 1
+
+    while not s.is_empty():
+        if s.peek() == a[ans]:
+            s.pop()
+            ans += 1
+            b.append("-")
+        else :
+            checker = False
+            break
+
+    if checker :
+        i = 0
+        while i < len(b):
+            print(b[i])
+            i+=1
+    else :
+        print("NO")
