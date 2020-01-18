@@ -46,7 +46,6 @@ if __name__=="__main__":
 
     a = MergeSort(a)
 
-    i = 0
     k = 0
 
     while a:
